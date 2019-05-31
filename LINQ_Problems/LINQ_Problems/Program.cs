@@ -73,7 +73,8 @@ namespace LINQ_Problems
 
             for (int i = 0; i < classGrades.Count; i++)
             {
-                var averageOfGrades = classGrades[i].Split(',').Select(m => int.Parse(m)).OrderBy(q => q).Skip(0).Average();
+                var numericOrderOfGrades = classGrades[i].Split(',').Select(m => int.Parse(m)).OrderBy(q => q);
+                var averageOfGrades = numericOrderOfGrades.Skip(1).Average();
                 averageOfaveragesList.Add(averageOfGrades);
             }
             var averageOfaverages = averageOfaveragesList.Average();
